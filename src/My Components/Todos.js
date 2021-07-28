@@ -1,9 +1,15 @@
 import React from 'react'
-
-export const Todos = () => {
+import {TodoList} from './TodoList'
+export const Todos = (props) => {
     return (
-        <div>
-            <p>]My Todos is working Yaay!</p>
+        <div className="container">
+            {props.todos.length===0 ? "No Todos to Display" : 
+            props.todos.map((todo)=>{
+                return <TodoList todo={todo} key={todo.sno} onDelete={props.onDelete}/>
+                })
+                }
+            
+            
         </div>
     )
 }
